@@ -1,0 +1,332 @@
+/* =============================================
+   DARK THEME (default)
+   ============================================= */
+:root {
+    --bg-color: #0b0c10;
+    --bg-secondary: #111220;
+    --card-bg: rgba(26, 26, 46, 0.7);
+    --card-border: rgba(255, 255, 255, 0.05);
+
+    --accent-green: #00ff88;
+    --accent-cyan: #00e5ff;
+    --accent-purple: #9d4edd;
+    --accent-yellow: #ffb703;
+    --accent-pink: #ff006e;
+
+    --text-primary: #ffffff;
+    --text-secondary: #8b8b99;
+    --text-inverse: #0b0c10;
+
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+/* =============================================
+   LIGHT THEME
+   ============================================= */
+[data-theme="light"] {
+    --bg-color: #f0f2f8;
+    --bg-secondary: #e5e8f2;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(0, 0, 0, 0.06);
+
+    --accent-green: #00b861;
+    --accent-cyan: #0099cc;
+    --accent-purple: #7c3aed;
+    --accent-yellow: #d97706;
+    --accent-pink: #e00055;
+
+    --text-primary: #0d0f1a;
+    --text-secondary: #595972;
+    --text-inverse: #ffffff;
+
+    --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 20px rgba(0, 153, 204, 0.12);
+}
+
+[data-theme="light"] body {
+    background-image: radial-gradient(ellipse at 30% 20%, rgba(0, 153, 204, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 60%);
+}
+
+[data-theme="light"] .glow-text {
+    text-shadow: 0 0 15px rgba(0, 153, 204, 0.3);
+}
+
+[data-theme="light"] .btn:active {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .back-btn:active {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-image: radial-gradient(ellipse at 20% 10%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 85%, rgba(157, 78, 221, 0.04) 0%, transparent 50%);
+}
+
+#app {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+/* Typography */
+h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Cards */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.glass-card:active {
+    transform: scale(0.985);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--card-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: var(--shadow-card);
+}
+
+.btn:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Views */
+.view {
+    display: none;
+    animation: fadeIn 0.28s ease;
+}
+
+.view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--card-border);
+    transition: background 0.18s, transform 0.15s;
+    box-shadow: var(--shadow-card);
+}
+
+.back-btn:active {
+    transform: scale(0.93);
+}
+
+/* Glow text */
+.glow-text {
+    text-shadow: 0 0 12px currentColor;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-card);
+}
+
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Login input */
+input {
+    color: var(--text-primary) !important;
+    background: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+[data-theme="light"] input {
+    color: #0d0f1a !important;
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Game card hover */
+.game-card {
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.game-card:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =============================================
+   DOMINO GAME STYLES
+   ============================================= */
+.domino-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.domino {
+    width: 60px;
+    height: 100px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.domino-half {
+    flex: 1;
+    background: rgba(0,0,0,0.03);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 4px;
+    align-items: center;
+    justify-items: center;
+}
+
+.domino-divider {
+    height: 2px;
+    background: rgba(0,0,0,0.1);
+    width: 90%;
+    margin: 0 auto;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #222;
+    border-radius: 50%;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .domino {
+    background: #fff;
+    border-color: rgba(0,0,0,0.1);
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .domino {
+    background: #f8f9fa;
+}
+
+/* Domino sizing for larger screens/grids */
+@media (min-width: 400px) {
+    .domino {
+        width: 70px;
+        height: 120px;
+        padding: 8px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
