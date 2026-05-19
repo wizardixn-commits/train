@@ -50,6 +50,7 @@ function renderDashboard(container) {
                 ${gc('simon', 'ПАМЯТЬ', 'Симон', 'Паттерн цветов', '🟢', scores.simon)}
                 ${gc('domino', 'ПАМЯТЬ', 'Домино', 'Сумма точек домино', '🁫', scores.domino)}
                 ${gc('emoji', 'ПАМЯТЬ', 'Смайлы', 'Память на положение', '🎭', scores.emoji)}
+                ${gc('solfeggio', 'СЛУХ', 'Ноты', 'Угадай ноту на слух', '🎵', scores.solfeggio)}
                 ${gc('schulte', 'ВНИМАНИЕ', 'Шульте', 'Таблица концентрации', '🔍', scores.schulte ? scores.schulte + 'с' : null)}
                 ${gc('reaction', 'ВНИМАНИЕ', 'Реакция', 'Скорость реакции', '⚡', scores.reaction ? scores.reaction + 'мс' : null)}
                 ${gc('stroop', 'КОГНИЦИЯ', 'Строп', 'Тест цвета и слова', '🎨', scores.stroop)}
@@ -185,7 +186,7 @@ function toggleProgress() {
 
 /* ── Random game ── */
 function randomGame() {
-    const all = ['matrix', 'numbers', 'pairs', 'simon', 'schulte', 'reaction', 'stroop', 'math', 'flow', 'flasks', 'body', 'soul'];
+    const all = ['matrix', 'numbers', 'pairs', 'simon', 'domino', 'emoji', 'solfeggio', 'schulte', 'reaction', 'stroop', 'math', 'flow', 'flasks', 'body', 'soul'];
     navigate(all[Math.floor(Math.random() * all.length)]);
 }
 

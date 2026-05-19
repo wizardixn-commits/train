@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trainbrain-v4';
+const CACHE_NAME = 'trainbrain-v5';
 const ASSETS = [
     './',
     './index.html',
@@ -22,7 +22,10 @@ const ASSETS = [
     './js/stroop.js',
     './js/simon.js',
     './js/body.js',
-    './js/soul.js'
+    './js/soul.js',
+    './js/domino.js',
+    './js/emoji.js',
+    './js/solfeggio.js'
 ];
 
 // On install: cache all app shell files

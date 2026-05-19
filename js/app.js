@@ -14,7 +14,8 @@ const routes = {
     'body': renderBody,
     'soul': renderSoul,
     'domino': renderDomino,
-    'emoji': renderEmoji
+    'emoji': renderEmoji,
+    'solfeggio': renderSolfeggio
 };
 
 let currentView = 'dashboard';
