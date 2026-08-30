@@ -35,7 +35,7 @@ function renderDomino(container) {
     
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">←</div>
+            <div class="back-btn" onclick="goBack('domino', dominoState.phase !== 'setup')">←</div>
             <h2 style="margin: 0; color: var(--accent-green);" class="glow-text">ДОМИНО</h2>
             <div style="font-weight: bold; color: var(--accent-yellow); font-size: 18px;" id="domScore">${dominoState.bestScore}</div>
         </div>

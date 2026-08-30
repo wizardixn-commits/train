@@ -14,7 +14,7 @@ let reactionState = {
 function renderReaction(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="stopReaction(); navigate('dashboard')">
+            <div class="back-btn" onclick="stopReaction(); goBack('reaction', false)">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-green);" class="glow-text">РЕАКЦИЯ</h2>
@@ -87,6 +87,7 @@ function handleReactionTap() {
             if (text) { text.innerText = `Среднее: ${avg} мс. Нажми заново!`; text.style.color = 'var(--accent-green)'; }
             reactionState.phase = 'idle';
             updateReactionBest();
+            saveScore('reaction', reactionState.fastest);
         } else {
             if (area) { area.style.background = 'rgba(255,183,3,0.08)'; area.style.borderColor = 'rgba(255,183,3,0.3)'; }
             if (text) { text.innerText = 'Приготовься...'; text.style.color = 'var(--accent-yellow)'; }

@@ -59,7 +59,7 @@ function renderFlasks(container) {
 
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="goBack('flasks', flasksState.moves > 0)">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-yellow);" class="glow-text">КОЛБЫ</h2>

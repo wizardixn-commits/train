@@ -11,7 +11,7 @@ function renderMatrix(container) {
     // Basic structure
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="goBack('matrix', matrixState.phase === 'memory' || matrixState.phase === 'playing' || matrixState.phase === 'wait')">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-green);" class="glow-text">МАТРИЦА</h2>
@@ -139,6 +139,7 @@ function handleMatrixClick(index) {
             matrixState.phase = 'wait';
             matrixState.level++;
             if (matrixState.level > matrixState.record) matrixState.record = matrixState.level;
+            saveScore('matrix', matrixState.record);
 
             const msg = document.getElementById('matrixMessage');
             if (msg) {

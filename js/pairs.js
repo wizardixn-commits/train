@@ -20,7 +20,7 @@ let pairsState = {
 function renderPairs(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="goBack('pairs', pairsState.phase === 'playing')">
                 ←
             </div>
             <h2 style="margin:0; color:var(--accent-cyan);" class="glow-text">ПАРЫ</h2>

@@ -106,7 +106,7 @@ function renderSolfeggio(container) {
     
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">←</div>
+            <div class="back-btn" onclick="goBack('solfeggio', solfeggioState.phase === 'playing' || solfeggioState.phase === 'input')">←</div>
             <h2 style="margin: 0; color: var(--accent-cyan);" class="glow-text">СОЛЬФЕДЖИО</h2>
             <div style="font-weight: bold; color: var(--accent-yellow); font-size: 18px;" id="solfeggioScore">${solfeggioState.bestScore}</div>
         </div>

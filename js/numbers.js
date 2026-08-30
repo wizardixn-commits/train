@@ -13,7 +13,7 @@ let numbersState = {
 function renderNumbers(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="goBack('numbers', numbersState.phase === 'memory' || numbersState.phase === 'playing' || numbersState.phase === 'wait')">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-cyan);" class="glow-text">ЧИСЛА</h2>
@@ -107,6 +107,7 @@ function checkNumbers() {
         if (msg) { msg.innerText = 'Отлично!'; msg.style.color = 'var(--accent-green)'; }
         numbersState.level++;
         if (numbersState.level > numbersState.record) numbersState.record = numbersState.level;
+        saveScore('numbers', numbersState.record);
         updateNumbersUI();
         setTimeout(() => startNumbers(), 1500);
     } else {

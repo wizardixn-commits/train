@@ -14,7 +14,7 @@ let schulteState = {
 function renderSchulte(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="stopSchulte(); goBack('schulte', false)">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-purple);" class="glow-text">ШУЛЬТЕ</h2>
@@ -113,6 +113,7 @@ function handleSchulteClick(num, cell) {
             const elapsed = ((Date.now() - schulteState.startTime) / 1000).toFixed(1);
             if (schulteState.bestTime === 0 || parseFloat(elapsed) < schulteState.bestTime) {
                 schulteState.bestTime = parseFloat(elapsed);
+                saveScore('schulte', parseFloat(elapsed));
                 const bEl = document.getElementById('schulteBest');
                 if (bEl) bEl.innerText = `${elapsed}с`;
             }
@@ -143,4 +144,9 @@ function handleSchulteClick(num, cell) {
 function updateSchulteNext() {
     const el = document.getElementById('schulteNext');
     if (el && schulteState.current <= 25) el.innerText = schulteState.current;
+}
+
+function stopSchulte() {
+    clearInterval(schulteTimerId);
+    schulteState.phase = 'idle';
 }

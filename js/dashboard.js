@@ -2,13 +2,21 @@ function renderDashboard(container) {
     const user = getUser();
     const scores = getUserScores();
 
+    // Calculate real XP from scores
+    const totalXP = calcTotalXP(scores);
+    const xpLevel = Math.floor(totalXP / 200) + 1;
+    const xpInLevel = totalXP % 200;
+    const xpPct = Math.round((xpInLevel / 200) * 100);
+    // Streak from localStorage
+    const streak = getStreak();
+
     container.innerHTML = `
         <!-- User header with theme toggle -->
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px; margin-top:6px;">
             <div style="font-size:42px; line-height:1;">${user ? user.avatar : '🧠'}</div>
             <div style="flex:1; min-width:0;">
                 <div style="font-size:19px; font-weight:800; color:var(--accent-cyan);">${user ? user.name : 'Гость'}</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:2px;">🔥 7 дней · Ур.11 · 2069 XP</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:2px;">🔥 ${streak} дн · Ур.${xpLevel} · ${totalXP} XP</div>
             </div>
             <div class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Сменить тему">
                 ${(localStorage.getItem('trainbrain_theme') || 'dark') === 'dark' ? '☀️' : '🌙'}
@@ -55,7 +63,6 @@ function renderDashboard(container) {
                 ${gc('reaction', 'ВНИМАНИЕ', 'Реакция', 'Скорость реакции', '⚡', scores.reaction ? scores.reaction + 'мс' : null)}
                 ${gc('stroop', 'КОГНИЦИЯ', 'Строп', 'Тест цвета и слова', '🎨', scores.stroop)}
                 ${gc('math', 'ИНТЕЛЛЕКТ', 'Счёт', 'Быстрый устный счёт', '🧮', scores.math)}
-                ${gc('flow', 'ПРОСТРАНСТВО', 'Флоу', 'Соедини точки', '〰️', null)}
                 ${gc('flasks', 'МОТОРИКА', 'Колбы', 'Логика и стратегия', '🧪', scores.flasks ? scores.flasks + 'х' : null)}
             </div>
         </div>
@@ -103,13 +110,13 @@ function renderDashboard(container) {
 
         <!-- XP bar -->
         <div class="glass-card" style="display:flex;align-items:center;gap:14px;padding:14px 18px;margin-top:22px;margin-bottom:22px;">
-            <div style="background:rgba(0,255,136,0.12);padding:5px 13px;border-radius:20px;font-weight:bold;color:var(--accent-green);font-size:13px;">Ур. 11</div>
+            <div style="background:rgba(0,255,136,0.12);padding:5px 13px;border-radius:20px;font-weight:bold;color:var(--accent-green);font-size:13px;">Ур. ${xpLevel}</div>
             <div style="flex:1;height:5px;background:rgba(0,0,0,0.1);border-radius:3px;overflow:hidden;">
-                <div style="width:40%;height:100%;background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan));border-radius:3px;"></div>
+                <div style="width:${xpPct}%;height:100%;background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan));border-radius:3px;"></div>
             </div>
             <div style="text-align:right;">
-                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:1px;">2069 XP</div>
-                <div style="font-size:12px;font-weight:bold;color:var(--accent-yellow);">🔥 7 дней</div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:1px;">${totalXP} XP</div>
+                <div style="font-size:12px;font-weight:bold;color:var(--accent-yellow);">🔥 ${streak} дней</div>
             </div>
         </div>
 
@@ -130,6 +137,18 @@ function renderDashboard(container) {
 
         <div class="glass-card" style="padding:14px;text-align:center;font-size:12px;color:var(--text-secondary);font-style:italic;opacity:0.7;">
             20 секунд отдыха каждые 7.5 минут стабилизируют когнитивную производительность
+        </div>
+
+        <!-- Developer links -->
+        <div style="text-align:center;padding:18px 0 8px;display:flex;flex-direction:column;gap:10px;">
+            <a href="https://t.me/neurodojo_hub" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;border-radius:14px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.2);color:var(--accent-cyan);font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;">
+                <span style="font-size:18px;">📢</span> Подписаться на Нейро Додзё
+            </a>
+            <a href="https://t.me/wizard_nix" target="_blank" rel="noopener"
+               style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;">
+                <span style="font-size:15px;">🧑‍💻</span> Разработчик: @wizard_nix
+            </a>
         </div>
     `;
 }
@@ -186,7 +205,7 @@ function toggleProgress() {
 
 /* ── Random game ── */
 function randomGame() {
-    const all = ['matrix', 'numbers', 'pairs', 'simon', 'domino', 'emoji', 'solfeggio', 'schulte', 'reaction', 'stroop', 'math', 'flow', 'flasks', 'body', 'soul'];
+    const all = ['matrix', 'numbers', 'pairs', 'simon', 'domino', 'emoji', 'solfeggio', 'schulte', 'reaction', 'stroop', 'math', 'flasks', 'body', 'soul'];
     navigate(all[Math.floor(Math.random() * all.length)]);
 }
 
@@ -251,4 +270,40 @@ function initChart() {
             animation: { duration: 600 }
         }
     });
+}
+
+/* ── XP Calculation from real scores ── */
+function calcTotalXP(scores) {
+    let xp = 0;
+    if (scores.matrix)    xp += Math.min(scores.matrix * 10, 200);
+    if (scores.numbers)   xp += Math.min(scores.numbers * 15, 200);
+    if (scores.pairs)     xp += scores.pairs > 0 ? Math.max(0, Math.round(200 - scores.pairs * 8)) : 0;
+    if (scores.simon)     xp += Math.min(scores.simon * 12, 200);
+    if (scores.domino)    xp += Math.min((scores.domino || 0) * 5, 150);
+    if (scores.emoji)     xp += Math.min((scores.emoji || 0) * 5, 150);
+    if (scores.schulte)   xp += scores.schulte > 0 ? Math.min(Math.round((200 / scores.schulte) * 10), 200) : 0;
+    if (scores.reaction)  xp += scores.reaction > 0 ? Math.min(Math.round((500 / scores.reaction) * 100), 200) : 0;
+    if (scores.stroop)    xp += Math.min(scores.stroop * 5, 200);
+    if (scores.math)      xp += Math.min(scores.math * 8, 200);
+    if (scores.solfeggio) xp += Math.min((scores.solfeggio || 0) * 5, 150);
+    if (scores.body)      xp += Math.min((scores.body || 0) * 20, 320);
+    if (scores.flasks)    xp += scores.flasks > 0 ? Math.max(0, 100 - scores.flasks) : 0;
+    return Math.max(0, Math.round(xp));
+}
+
+/* ── Daily streak ── */
+function getStreak() {
+    const key = 'trainbrain_streak';
+    const today = new Date().toDateString();
+    let data = JSON.parse(localStorage.getItem(key) || '{"last":"","count":0}');
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (data.last === today) return data.count;
+    if (data.last === yesterday) {
+        data.count++;
+    } else {
+        data.count = 1;
+    }
+    data.last = today;
+    localStorage.setItem(key, JSON.stringify(data));
+    return data.count;
 }

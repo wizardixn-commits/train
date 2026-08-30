@@ -16,7 +16,7 @@ let mathState = {
 function renderMath(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="stopMath(); navigate('dashboard')">
+            <div class="back-btn" onclick="stopMath(); goBack('math', false)">
                 ←
             </div>
             <h2 style="margin: 0; color: var(--accent-yellow);" class="glow-text">СЧЁТ</h2>
@@ -139,7 +139,10 @@ function answerMath(val) {
     if (isCorrect) {
         mathState.score++;
         mathState.streak++;
-        if (mathState.score > mathState.record) mathState.record = mathState.score;
+        if (mathState.score > mathState.record) {
+            mathState.record = mathState.score;
+            saveScore('math', mathState.record);
+        }
         if (mathState.streak % 5 === 0) mathState.level++;
     } else {
         mathState.streak = 0;

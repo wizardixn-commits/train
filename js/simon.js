@@ -20,7 +20,7 @@ let simonState = {
 function renderSimon(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">
+            <div class="back-btn" onclick="goBack('simon', simonState.phase === 'playing')">
                 ←
             </div>
             <h2 style="margin:0; color:var(--accent-green);" class="glow-text">СИМОН</h2>

@@ -23,7 +23,7 @@ let stroopState = {
 function renderStroop(container) {
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="stopStroop(); navigate('dashboard')">
+            <div class="back-btn" onclick="stopStroop(); goBack('stroop', false)">
                 ←
             </div>
             <h2 style="margin:0; color:var(--accent-pink);" class="glow-text">СТРОП</h2>

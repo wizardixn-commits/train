@@ -22,7 +22,7 @@ function renderEmoji(container) {
     
     container.innerHTML = `
         <div class="top-nav">
-            <div class="back-btn" onclick="navigate('dashboard')">←</div>
+            <div class="back-btn" onclick="goBack('emoji', emojiState.phase !== 'setup')">←</div>
             <h2 style="margin: 0; color: var(--accent-purple);" class="glow-text">СМАЙЛЫ</h2>
             <div style="font-weight: bold; color: var(--accent-yellow); font-size: 18px;" id="emojiScore">${emojiState.bestScore}</div>
         </div>
