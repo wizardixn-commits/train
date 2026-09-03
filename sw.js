@@ -8,6 +8,8 @@ const ASSETS = [
     './css/fa/webfonts/fa-regular-400.woff2',
     './css/fa/webfonts/fa-brands-400.woff2',
     './manifest.json',
+    './images/icon-192.png',
+    './images/icon-512.png',
     './js/app.js',
     './js/auth.js',
     './js/dashboard.js',
