@@ -19,6 +19,12 @@
 
     --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
     --shadow-glow: 0 0 20px rgba(0, 229, 255, 0.15);
+
+    --mul-grid-bg: rgba(22, 22, 38, 0.85);
+    --mul-grid-border: rgba(255, 255, 255, 0.08);
+    --mul-cell-bg: rgba(255, 255, 255, 0.05);
+    --mul-cell-border: rgba(255, 255, 255, 0.12);
+    --mul-cell-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* =============================================
@@ -42,6 +48,12 @@
 
     --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.08);
     --shadow-glow: 0 0 20px rgba(0, 153, 204, 0.12);
+
+    --mul-grid-bg: #e2e8f0;
+    --mul-grid-border: #cbd5e1;
+    --mul-cell-bg: #ffffff;
+    --mul-cell-border: #cbd5e1;
+    --mul-cell-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="light"] body {
@@ -328,5 +340,80 @@ input::placeholder {
     .dot {
         width: 10px;
         height: 10px;
+    }
+}
+
+/* =============================================
+   MULTIPLICATION GRID GAME
+   ============================================= */
+.mul-grid-wrapper {
+    background: var(--mul-grid-bg) !important;
+    border: 1px solid var(--mul-grid-border) !important;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.mul-cell {
+    background: var(--mul-cell-bg);
+    border: 1px solid var(--mul-cell-border);
+    box-shadow: var(--mul-cell-shadow);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    transition: background 0.12s, border-color 0.12s, transform 0.12s, box-shadow 0.12s;
+}
+
+[data-theme="light"] .mul-cell {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .mul-grid-wrapper {
+    background: #e2e8f0 !important;
+    border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] .mul-cell.is-selected {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+    border-color: #a855f7 !important;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.45) !important;
+}
+
+[data-theme="light"] .mul-cell.is-correct {
+    background: linear-gradient(135deg, #00c853, #00e676) !important;
+    border-color: #00c853 !important;
+    box-shadow: 0 0 14px rgba(0, 200, 83, 0.5) !important;
+}
+
+[data-theme="light"] .mul-cell.is-wrong {
+    background: linear-gradient(135deg, #ff1744, #f50057) !important;
+    border-color: #ff1744 !important;
+    box-shadow: 0 0 14px rgba(255, 23, 68, 0.5) !important;
+}
+
+[data-theme="light"] .mul-lvl-tab {
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .mul-lvl-tab.active {
+    background: rgba(124, 58, 237, 0.12) !important;
+    border-color: rgba(124, 58, 237, 0.35) !important;
+}
+
+@keyframes pulseBadge {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }

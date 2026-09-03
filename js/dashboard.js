@@ -63,6 +63,7 @@ function renderDashboard(container) {
                 ${gc('reaction', 'ВНИМАНИЕ', 'Реакция', 'Скорость реакции', '⚡', scores.reaction ? scores.reaction + 'мс' : null)}
                 ${gc('stroop', 'КОГНИЦИЯ', 'Строп', 'Тест цвета и слова', '🎨', scores.stroop)}
                 ${gc('math', 'ИНТЕЛЛЕКТ', 'Счёт', 'Быстрый устный счёт', '🧮', scores.math)}
+                ${gc('multiply', 'МАТЕМАТИКА', 'Умножение', 'Таблица в клетку', '✖️', scores.multiply)}
                 ${gc('flasks', 'МОТОРИКА', 'Колбы', 'Логика и стратегия', '🧪', scores.flasks ? scores.flasks + 'х' : null)}
             </div>
         </div>
@@ -130,7 +131,7 @@ function renderDashboard(container) {
                 ${statBar('Память', 'var(--accent-green)', Math.min((scores.matrix || 0) + (scores.numbers || 0) + (scores.pairs || 0), 100), 100)}
                 ${statBar('Внимание', 'var(--accent-cyan)', scores.schulte ? Math.max(200 - scores.schulte, 0) : 0, 200)}
                 ${statBar('Когниция', 'var(--accent-purple)', scores.stroop || 0, 60)}
-                ${statBar('Интеллект', 'var(--accent-yellow)', scores.math || 0, 30)}
+                ${statBar('Интеллект', 'var(--accent-yellow)', (scores.math || 0) + (scores.multiply || 0), 40)}
                 ${statBar('Тело', 'var(--accent-pink)', (scores.body || 0) * 6.25, 100)}
             </div>
         </div>
@@ -205,7 +206,7 @@ function toggleProgress() {
 
 /* ── Random game ── */
 function randomGame() {
-    const all = ['matrix', 'numbers', 'pairs', 'simon', 'domino', 'emoji', 'solfeggio', 'schulte', 'reaction', 'stroop', 'math', 'flasks', 'body', 'soul'];
+    const all = ['matrix', 'numbers', 'pairs', 'simon', 'domino', 'emoji', 'solfeggio', 'schulte', 'reaction', 'stroop', 'math', 'multiply', 'flasks', 'body', 'soul'];
     navigate(all[Math.floor(Math.random() * all.length)]);
 }
 
@@ -242,7 +243,7 @@ function initChart() {
                     Math.min((scores.matrix || 0) + (scores.numbers || 0) + (scores.pairs || 0), 100),
                     scores.schulte ? Math.min(Math.max(200 - scores.schulte, 0) / 200 * 100, 100) : 0,
                     Math.min((scores.stroop || 0) / 60 * 100, 100),
-                    Math.min((scores.math || 0) / 30 * 100, 100),
+                    Math.min(((scores.math || 0) + (scores.multiply || 0)) / 40 * 100, 100),
                     Math.min((scores.body || 0) / 16 * 100, 100)
                 ],
                 backgroundColor: 'rgba(0,255,136,0.07)',
@@ -285,6 +286,7 @@ function calcTotalXP(scores) {
     if (scores.reaction)  xp += scores.reaction > 0 ? Math.min(Math.round((500 / scores.reaction) * 100), 200) : 0;
     if (scores.stroop)    xp += Math.min(scores.stroop * 5, 200);
     if (scores.math)      xp += Math.min(scores.math * 8, 200);
+    if (scores.multiply)  xp += Math.min(scores.multiply * 10, 200);
     if (scores.solfeggio) xp += Math.min((scores.solfeggio || 0) * 5, 150);
     if (scores.body)      xp += Math.min((scores.body || 0) * 20, 320);
     if (scores.flasks)    xp += scores.flasks > 0 ? Math.max(0, 100 - scores.flasks) : 0;

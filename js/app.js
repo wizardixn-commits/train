@@ -6,6 +6,7 @@ const routes = {
     'numbers': renderNumbers,
     'reaction': renderReaction,
     'math': renderMath,
+    'multiply': renderMultiply,
     'schulte': renderSchulte,
     'pairs': renderPairs,
     'stroop': renderStroop,
