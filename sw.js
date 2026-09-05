@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trainbrain-v6';
+const CACHE_NAME = 'trainbrain-v7';
 const ASSETS = [
     './',
     './index.html',
@@ -25,6 +25,7 @@ const ASSETS = [
     './js/simon.js',
     './js/body.js',
     './js/soul.js',
+    './js/soul_games.js',
     './js/domino.js',
     './js/emoji.js',
     './js/solfeggio.js'

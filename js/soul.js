@@ -102,13 +102,30 @@ function renderSoul(container) {
             Развивай эмоциональный интеллект через осознанность и рефлексию
         </p>
 
-        <div style="display:flex; flex-direction:column; gap:12px;">
-            ${soulCard('emotion-wheel', '🎡', 'Колесо эмоций', 'Исследуй и называй свои чувства', '#e879f9')}
-            ${soulCard('eq-test', '🧪', 'Тест эмоций', 'Распознай эмоцию по выражению лица', '#fb5607')}
-            ${soulCard('gratitude', '🙏', 'Благодарность', '3 вещи, за которые благодарен сегодня', '#ffb703')}
-            ${soulCard('reflection', '📔', 'Рефлексия', 'Вопросы для самопознания', '#9d4edd')}
-            ${soulCard('affirmations', '✨', 'Аффирмации', 'Позитивные установки для ума', '#00ff88')}
-            ${soulCard('breathing', '🌬️', 'Осознанное дыхание', 'Успокой ум за 2 минуты', '#00e5ff')}
+        <div style="margin-bottom:20px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--accent-green); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+                <span>🌟</span> Детские игры души и EQ
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                ${soulCard('soul-garden', '🌳', 'Сад доброты', 'Выращивай волшебное дерево хорошими делами', '#00ff88')}
+                ${soulCard('soul-theater', '🎭', 'Эмодзи-театр', 'Конструктор живой мимики и настроения', '#e879f9')}
+                ${soulCard('soul-friendship', '🤝', 'Мостик дружбы', 'Добрые истории взаимовыручки и заботы', '#00e5ff')}
+                ${soulCard('soul-jar', '🫙', 'Банка радости', 'Лови светлячков благодарности и тепла', '#ffb703')}
+            </div>
+        </div>
+
+        <div style="margin-bottom:10px;">
+            <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#e879f9; margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+                <span>🧘</span> Практики осознанности
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                ${soulCard('emotion-wheel', '🎡', 'Колесо эмоций', 'Исследуй и называй свои чувства', '#e879f9')}
+                ${soulCard('eq-test', '🧪', 'Тест эмоций', 'Распознай эмоцию по выражению лица', '#fb5607')}
+                ${soulCard('gratitude', '🙏', 'Благодарность', '3 вещи, за которые благодарен сегодня', '#ffb703')}
+                ${soulCard('reflection', '📔', 'Рефлексия', 'Вопросы для самопознания', '#9d4edd')}
+                ${soulCard('affirmations', '✨', 'Аффирмации', 'Позитивные установки для ума', '#00ff88')}
+                ${soulCard('breathing', '🌬️', 'Осознанное дыхание', 'Успокой ум за 2 минуты', '#00e5ff')}
+            </div>
         </div>
     `;
 }
@@ -131,6 +148,10 @@ function renderSoulSection(section) {
     const container = document.getElementById('soul');
     if (!container) return;
     switch (section) {
+        case 'soul-garden': renderSoulGarden(container); break;
+        case 'soul-theater': renderSoulTheater(container); break;
+        case 'soul-friendship': renderSoulFriendship(container); break;
+        case 'soul-jar': renderSoulJar(container); break;
         case 'emotion-wheel': renderEmotionWheel(container); break;
         case 'eq-test': renderEQTest(container); break;
         case 'gratitude': renderGratitude(container); break;

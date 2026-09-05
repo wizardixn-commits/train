@@ -13,6 +13,10 @@ const routes = {
     'simon': renderSimon,
     'body': renderBody,
     'soul': renderSoul,
+    'soul_garden': renderSoulGarden,
+    'soul_theater': renderSoulTheater,
+    'soul_friendship': renderSoulFriendship,
+    'soul_jar': renderSoulJar,
     'domino': renderDomino,
     'emoji': renderEmoji,
     'solfeggio': renderSolfeggio

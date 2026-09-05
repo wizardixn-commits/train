@@ -70,18 +70,46 @@ function renderDashboard(container) {
 
         <!-- Soul tab content -->
         <div id="soulBtn" style="display:none;">
-            <div class="glass-card" onclick="navigate('soul')" style="display:flex;align-items:center;gap:15px;padding:20px;cursor:pointer;border-color:rgba(232,121,249,0.2);margin-bottom:15px;">
-                <div style="font-size:36px;">🌸</div>
+            <!-- Featured Children Soul Games (4 Games) -->
+            <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--accent-green); margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <span>🌟</span> Детские игры души и EQ
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+                <div class="glass-card" onclick="navigate('soul_garden')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(0,255,136,0.3); background:radial-gradient(circle at 50% 20%, rgba(0,255,136,0.1) 0%, var(--card-bg) 75%);">
+                    <div style="font-size:32px; margin-bottom:6px;">🌳</div>
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-green); margin-bottom:2px;">Сад доброты</div>
+                    <div style="font-size:10px; color:var(--text-secondary);">Дерево добрых дел</div>
+                </div>
+                <div class="glass-card" onclick="navigate('soul_theater')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(232,121,249,0.3); background:radial-gradient(circle at 50% 20%, rgba(232,121,249,0.1) 0%, var(--card-bg) 75%);">
+                    <div style="font-size:32px; margin-bottom:6px;">🎭</div>
+                    <div style="font-size:13px; font-weight:800; color:#e879f9; margin-bottom:2px;">Эмодзи-театр</div>
+                    <div style="font-size:10px; color:var(--text-secondary);">Мимика и эмоции</div>
+                </div>
+                <div class="glass-card" onclick="navigate('soul_friendship')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(0,229,255,0.3); background:radial-gradient(circle at 50% 20%, rgba(0,229,255,0.1) 0%, var(--card-bg) 75%);">
+                    <div style="font-size:32px; margin-bottom:6px;">🤝</div>
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-cyan); margin-bottom:2px;">Мостик дружбы</div>
+                    <div style="font-size:10px; color:var(--text-secondary);">Истории доброты</div>
+                </div>
+                <div class="glass-card" onclick="navigate('soul_jar')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(255,183,3,0.3); background:radial-gradient(circle at 50% 20%, rgba(255,183,3,0.1) 0%, var(--card-bg) 75%);">
+                    <div style="font-size:32px; margin-bottom:6px;">🫙</div>
+                    <div style="font-size:13px; font-weight:800; color:var(--accent-yellow); margin-bottom:2px;">Банка радости</div>
+                    <div style="font-size:10px; color:var(--text-secondary);">Ловец светлячков</div>
+                </div>
+            </div>
+
+            <div class="glass-card" onclick="navigate('soul')" style="display:flex;align-items:center;gap:15px;padding:16px 20px;cursor:pointer;border-color:rgba(232,121,249,0.2);margin-bottom:14px;">
+                <div style="font-size:32px;">🌸</div>
                 <div style="flex:1;">
-                    <h3 style="margin-bottom:5px;color:#e879f9;">Эмоциональный интеллект</h3>
-                    <p style="font-size:12px;">6 практик для развития EQ</p>
+                    <h3 style="margin-bottom:4px;color:#e879f9;">Все практики души и EQ</h3>
+                    <p style="font-size:12px;">Детские игры и осознанность для взрослых</p>
                 </div>
                 ›
             </div>
+
             <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
                 ${[['🎡', 'Колесо эмоций'], ['🧪', 'Тест эмоций'], ['🙏', 'Благодарность'], ['✨', 'Аффирмации']].map(([ic, nm]) =>
-        `<div class="glass-card" onclick="navigate('soul')" style="padding:16px;cursor:pointer;text-align:center;border-color:rgba(232,121,249,0.1);">
-                        <div style="font-size:28px;margin-bottom:8px;">${ic}</div>
+        `<div class="glass-card" onclick="navigate('soul')" style="padding:14px;cursor:pointer;text-align:center;border-color:rgba(232,121,249,0.1);">
+                        <div style="font-size:26px;margin-bottom:6px;">${ic}</div>
                         <div style="font-size:13px;font-weight:600;">${nm}</div>
                     </div>`
     ).join('')}
@@ -289,6 +317,10 @@ function calcTotalXP(scores) {
     if (scores.multiply)  xp += Math.min(scores.multiply * 10, 200);
     if (scores.solfeggio) xp += Math.min((scores.solfeggio || 0) * 5, 150);
     if (scores.body)      xp += Math.min((scores.body || 0) * 20, 320);
+    if (scores.soul_garden)      xp += Math.min(scores.soul_garden * 15, 200);
+    if (scores.soul_theater)     xp += Math.min(scores.soul_theater * 10, 150);
+    if (scores.soul_friendship)  xp += Math.min(scores.soul_friendship * 15, 200);
+    if (scores.soul_jar)         xp += Math.min(scores.soul_jar * 15, 150);
     if (scores.flasks)    xp += scores.flasks > 0 ? Math.max(0, 100 - scores.flasks) : 0;
     return Math.max(0, Math.round(xp));
 }
