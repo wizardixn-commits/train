@@ -61,9 +61,16 @@ function renderDashboard(container) {
                 ${gc('solfeggio', 'СЛУХ', 'Ноты', 'Угадай ноту на слух', '🎵', scores.solfeggio)}
                 ${gc('schulte', 'ВНИМАНИЕ', 'Шульте', 'Таблица концентрации', '🔍', scores.schulte ? scores.schulte + 'с' : null)}
                 ${gc('reaction', 'ВНИМАНИЕ', 'Реакция', 'Скорость реакции', '⚡', scores.reaction ? scores.reaction + 'мс' : null)}
+                ${gc('catch_circle', 'ВНИМАНИЕ', 'Поймай круг', 'Круг ускоряется после поимки', '🎯', scores.catch_circle)}
                 ${gc('stroop', 'КОГНИЦИЯ', 'Строп', 'Тест цвета и слова', '🎨', scores.stroop)}
                 ${gc('math', 'ИНТЕЛЛЕКТ', 'Счёт', 'Быстрый устный счёт', '🧮', scores.math)}
                 ${gc('multiply', 'МАТЕМАТИКА', 'Умножение', 'Таблица в клетку', '✖️', scores.multiply)}
+                ${gc('puzzle3d', 'ИНТЕЛЛЕКТ', 'Три вида', 'Пространственное мышление', '🔮', scores.puzzle3d)}
+                ${gc('mental_rotation', 'ИНТЕЛЛЕКТ', 'Вращение', 'Ментальное вращение', '🌀', scores.mental_rotation)}
+                ${gc('cross_section', 'ИНТЕЛЛЕКТ', 'Сечения', 'Плоскость и фигура', '✂️', scores.cross_section)}
+                ${gc('mirror3d', 'ИНТЕЛЛЕКТ', 'Зеркало', 'Зеркальный близнец', '🪞', scores.mirror3d)}
+                ${gc('blueprint', 'ИНТЕЛЛЕКТ', 'Стройка', 'Строй по чертежу', '🏗️', scores.blueprint)}
+                ${gc('shadow3d', 'ИНТЕЛЛЕКТ', 'Тени', 'Угадай тень фигуры', '🌑', scores.shadow3d)}
                 ${gc('flasks', 'МОТОРИКА', 'Колбы', 'Логика и стратегия', '🧪', scores.flasks ? scores.flasks + 'х' : null)}
             </div>
         </div>
@@ -317,7 +324,14 @@ function calcTotalXP(scores) {
     if (scores.multiply)  xp += Math.min(scores.multiply * 10, 200);
     if (scores.solfeggio) xp += Math.min((scores.solfeggio || 0) * 5, 150);
     if (scores.body)      xp += Math.min((scores.body || 0) * 20, 320);
-    if (scores.soul_garden)      xp += Math.min(scores.soul_garden * 15, 200);
+    if (scores.catch_circle) xp += Math.min((scores.catch_circle || 0) * 8, 200);
+    if (scores.puzzle3d)     xp += Math.min((scores.puzzle3d || 0) * 12, 200);
+    if (scores.mental_rotation) xp += Math.min((scores.mental_rotation || 0) * 12, 200);
+    if (scores.cross_section) xp += Math.min((scores.cross_section || 0) * 12, 200);
+    if (scores.mirror3d)      xp += Math.min((scores.mirror3d || 0) * 12, 200);
+    if (scores.blueprint)     xp += Math.min((scores.blueprint || 0) * 12, 200);
+    if (scores.shadow3d)      xp += Math.min((scores.shadow3d || 0) * 12, 200);
+    if (scores.soul_garden)   xp += Math.min(scores.soul_garden * 15, 200);
     if (scores.soul_theater)     xp += Math.min(scores.soul_theater * 10, 150);
     if (scores.soul_friendship)  xp += Math.min(scores.soul_friendship * 15, 200);
     if (scores.soul_jar)         xp += Math.min(scores.soul_jar * 15, 150);

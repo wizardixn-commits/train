@@ -619,7 +619,7 @@ function handleMultiplyError(box) {
 function clearGridHighlights() {
     const cells = document.querySelectorAll('.mul-cell');
     cells.forEach(c => {
-        c.classList.remove('is-selected', 'is-correct', 'is-wrong');
+        c.classList.remove('is-selected', 'is-correct', 'is-wrong', 'is-hint');
         c.style.background = '';
         c.style.borderColor = '';
         c.style.boxShadow = '';
@@ -660,9 +660,7 @@ function toggleMultiplyHint() {
             const r = parseInt(c.dataset.r, 10);
             const col = parseInt(c.dataset.c, 10);
             if (r < rCount && col < cCount) {
-                c.style.borderColor = 'var(--accent-yellow)';
-                c.style.background = 'rgba(255, 183, 3, 0.18)';
-                c.style.boxShadow = 'inset 0 0 8px rgba(255, 183, 3, 0.4)';
+                c.classList.add('is-hint');
             }
         });
 

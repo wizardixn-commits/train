@@ -19,7 +19,14 @@ const routes = {
     'soul_jar': renderSoulJar,
     'domino': renderDomino,
     'emoji': renderEmoji,
-    'solfeggio': renderSolfeggio
+    'solfeggio': renderSolfeggio,
+    'catch_circle': renderCatchCircle,
+    'puzzle3d': renderPuzzle3d,
+    'mental_rotation': renderMentalRotation,
+    'cross_section': renderCrossSection,
+    'mirror3d': renderMirror3d,
+    'blueprint': renderBlueprint,
+    'shadow3d': renderShadow3d
 };
 
 let currentView = 'dashboard';
