@@ -222,8 +222,8 @@ function setMultiplyLevel(index) {
         if (!tab) return;
         const isActive = idx === index;
         tab.classList.toggle('active', isActive);
-        tab.style.borderColor = '';
-        tab.style.background = '';
+        tab.style.borderColor = isActive ? 'rgba(157,78,221,0.5)' : 'var(--card-border)';
+        tab.style.background = isActive ? 'rgba(157,78,221,0.2)' : 'var(--card-bg)';
         const title = tab.querySelector('div:first-child');
         if (title) title.style.color = isActive ? 'var(--accent-purple)' : 'var(--text-primary)';
     });
