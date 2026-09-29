@@ -10,10 +10,12 @@ const CS_PUZZLES = [
     // ── Куб ──────────────────────────────────────────────────────────────
     { title:'Куб: горизонтальный срез', emoji:'🟦',
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
+        <!-- Back planes (not strictly needed, but for depth if transparent) -->
         <polygon points="98.1,33.0 60.0,55.0 21.9,33.0 60.0,11.0" fill="#60a5fa" stroke="#3b82f6" stroke-width="1" stroke-linejoin="round" />
         <polygon points="21.9,33.0 60.0,55.0 60.0,99.0 21.9,77.0" fill="#1e40af" stroke="#172554" stroke-width="1" stroke-linejoin="round" />
         <polygon points="98.1,33.0 60.0,55.0 60.0,99.0 98.1,77.0" fill="#2563eb" stroke="#1e40af" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="117.2,55.0 60.0,88.0 2.8,55.0 60.0,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Actual slice intersection -->
+        <polygon points="21.9,55.0 60.0,77.0 98.1,55.0 60.0,33.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Квадрат','Треугольник','Шестиугольник','Прямоугольник'], correct:0 },
 
@@ -22,7 +24,8 @@ const CS_PUZZLES = [
         <polygon points="98.1,33.0 60.0,55.0 21.9,33.0 60.0,11.0" fill="#60a5fa" stroke="#3b82f6" stroke-width="1" stroke-linejoin="round" />
         <polygon points="21.9,33.0 60.0,55.0 60.0,99.0 21.9,77.0" fill="#1e40af" stroke="#172554" stroke-width="1" stroke-linejoin="round" />
         <polygon points="98.1,33.0 60.0,55.0 60.0,99.0 98.1,77.0" fill="#2563eb" stroke="#1e40af" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="2.8,88.0 60.0,121.0 117.2,22.0 60.0,-11.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Diagonal slice -->
+        <polygon points="21.9,77.0 98.1,77.0 98.1,33.0 21.9,33.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Квадрат','Прямоугольник','Треугольник','Шестиугольник'], correct:1 },
 
@@ -31,7 +34,8 @@ const CS_PUZZLES = [
         <polygon points="98.1,33.0 60.0,55.0 21.9,33.0 60.0,11.0" fill="#60a5fa" stroke="#3b82f6" stroke-width="1" stroke-linejoin="round" />
         <polygon points="21.9,33.0 60.0,55.0 60.0,99.0 21.9,77.0" fill="#1e40af" stroke="#172554" stroke-width="1" stroke-linejoin="round" />
         <polygon points="98.1,33.0 60.0,55.0 60.0,99.0 98.1,77.0" fill="#2563eb" stroke="#1e40af" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="21.9,33.0 98.1,33.0 60.0,99.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Corner slice (Triangle) -->
+        <polygon points="21.9,33.0 98.1,33.0 60.0,99.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Квадрат','Шестиугольник','Треугольник','Трапеция'], correct:2 },
 
@@ -40,7 +44,8 @@ const CS_PUZZLES = [
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
         <polygon points="21.9,77.0 60.0,99.0 60.0,33.0" fill="#7e22ce" stroke="#581c87" stroke-width="1" stroke-linejoin="round" />
         <polygon points="98.1,77.0 60.0,99.0 60.0,33.0" fill="#a855f7" stroke="#7e22ce" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="117.2,55.0 60.0,88.0 2.8,55.0 60.0,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Horizontal slice (Square / Diamond in iso) -->
+        <polygon points="40.9,66.0 60.0,77.0 79.1,66.0 60.0,55.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Треугольник','Квадрат','Трапеция','Круг'], correct:1 },
 
@@ -48,11 +53,12 @@ const CS_PUZZLES = [
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
         <polygon points="21.9,77.0 60.0,99.0 60.0,33.0" fill="#7e22ce" stroke="#581c87" stroke-width="1" stroke-linejoin="round" />
         <polygon points="98.1,77.0 60.0,99.0 60.0,33.0" fill="#a855f7" stroke="#7e22ce" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="31.4,71.5 88.6,104.5 88.6,38.5 31.4,5.5" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Vertical slice (Triangle) -->
+        <polygon points="60.0,33.0 21.9,77.0 98.1,77.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Квадрат','Прямоугольник','Треугольник','Трапеция'], correct:2 },
 
-    // ── Цилиндр (из кубиков — восьмиугольник) ────────────────────────────
+    // ── Цилиндр ────────────────────────────
     { title:'Цилиндр: горизонтальный срез', emoji:'🔵',
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
         <ellipse cx="60" cy="77.0" rx="28.6" ry="16.5" fill="#0891b2" stroke="#164e63" stroke-width="1"/>
@@ -60,9 +66,10 @@ const CS_PUZZLES = [
         <line x1="31.4" y1="33.0" x2="31.4" y2="77.0" stroke="#164e63" stroke-width="1"/>
         <line x1="88.6" y1="33.0" x2="88.6" y2="77.0" stroke="#164e63" stroke-width="1"/>
         <ellipse cx="60" cy="33.0" rx="28.6" ry="16.5" fill="#22d3ee" stroke="#0891b2" stroke-width="1"/>
-        <polygon points="117.2,55.0 60.0,88.0 2.8,55.0 60.0,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Horizontal slice -->
+        <ellipse cx="60" cy="55.0" rx="28.6" ry="16.5" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2"/>
       </svg>`,
-      opts:['Квадрат','Эллипс / Круг','Треугольник','Прямоугольник'], correct:1 },
+      opts:['Квадрат','Круг','Треугольник','Прямоугольник'], correct:1 },
 
     { title:'Цилиндр: вертикальный срез', emoji:'🔵',
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
@@ -71,32 +78,45 @@ const CS_PUZZLES = [
         <line x1="31.4" y1="33.0" x2="31.4" y2="77.0" stroke="#164e63" stroke-width="1"/>
         <line x1="88.6" y1="33.0" x2="88.6" y2="77.0" stroke="#164e63" stroke-width="1"/>
         <ellipse cx="60" cy="33.0" rx="28.6" ry="16.5" fill="#22d3ee" stroke="#0891b2" stroke-width="1"/>
-        <polygon points="2.8,88.0 117.2,88.0 117.2,22.0 2.8,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Vertical slice (Rectangle) -->
+        <polygon points="31.4,33.0 88.6,33.0 88.6,77.0 31.4,77.0" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
-      opts:['Эллипс','Квадрат','Прямоугольник','Трапеция'], correct:2 },
+      opts:['Круг','Квадрат','Прямоугольник','Трапеция'], correct:2 },
 
-    // ── L-образная призма ─────────────────────────────────────────────────
+    // ── L-образная призма (Г-призма) ─────────────────────────────────────────────────
     { title:'Г-призма: горизонтальный срез', emoji:'📐',
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
-        <polygon points="60.0,22.0 98.1,44.0 79.1,55.0 40.9,33.0" fill="#4ade80" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="40.9,33.0 60.0,44.0 40.9,55.0 21.9,44.0" fill="#4ade80" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="21.9,44.0 40.9,55.0 40.9,77.0 21.9,66.0" fill="#14532d" stroke="#052e16" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="60.0,44.0 79.1,55.0 79.1,77.0 60.0,66.0" fill="#14532d" stroke="#052e16" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="98.1,44.0 79.1,55.0 79.1,77.0 98.1,66.0" fill="#22c55e" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="60.0,44.0 40.9,55.0 40.9,77.0 60.0,66.0" fill="#22c55e" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="117.2,55.0 60.0,88.0 2.8,55.0 60.0,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <polygon points="60,11 79,22 79,44 40,66 21,55 21,33" fill="#14532d" />
+        <polygon points="60,11 79,22 60,33 41,22" fill="#4ade80" stroke="#16a34a" stroke-width="1" />
+        <polygon points="41,22 60,33 41,44 21,33" fill="#4ade80" stroke="#16a34a" stroke-width="1" />
+        <polygon points="60,33 79,44 60,55 41,44" fill="#22c55e" stroke="#16a34a" stroke-width="1" />
+        <polygon points="41,44 60,55 40,66 21,55" fill="#22c55e" stroke="#16a34a" stroke-width="1" />
+        
+        <!-- Extrude walls -->
+        <polygon points="21,33 41,44 41,66 21,55" fill="#166534" stroke="#14532d" stroke-width="1" />
+        <polygon points="41,44 60,33 60,55 41,66" fill="#15803d" stroke="#14532d" stroke-width="1" />
+        <polygon points="60,33 79,22 79,44 60,55" fill="#166534" stroke="#14532d" stroke-width="1" />
+
+        <!-- Horizontal slice (L-shape) -->
+        <polygon points="60,22 79,33 60,44 41,55 21,44 41,33" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Квадрат','Г-образник','Прямоугольник','Треугольник'], correct:1 },
 
     { title:'Г-призма: вертикальный срез', emoji:'📐',
       fig: `<svg width="120" height="110" viewBox="0 0 120 110">
-        <polygon points="60.0,22.0 98.1,44.0 79.1,55.0 40.9,33.0" fill="#4ade80" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="40.9,33.0 60.0,44.0 40.9,55.0 21.9,44.0" fill="#4ade80" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="21.9,44.0 40.9,55.0 40.9,77.0 21.9,66.0" fill="#14532d" stroke="#052e16" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="60.0,44.0 79.1,55.0 79.1,77.0 60.0,66.0" fill="#14532d" stroke="#052e16" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="98.1,44.0 79.1,55.0 79.1,77.0 98.1,66.0" fill="#22c55e" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="60.0,44.0 40.9,55.0 40.9,77.0 60.0,66.0" fill="#22c55e" stroke="#16a34a" stroke-width="1" stroke-linejoin="round" />
-        <polygon points="79.1,55.0 21.9,88.0 21.9,44.0 79.1,11.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <polygon points="60,11 79,22 79,44 40,66 21,55 21,33" fill="#14532d" />
+        <polygon points="60,11 79,22 60,33 41,22" fill="#4ade80" stroke="#16a34a" stroke-width="1" />
+        <polygon points="41,22 60,33 41,44 21,33" fill="#4ade80" stroke="#16a34a" stroke-width="1" />
+        <polygon points="60,33 79,44 60,55 41,44" fill="#22c55e" stroke="#16a34a" stroke-width="1" />
+        <polygon points="41,44 60,55 40,66 21,55" fill="#22c55e" stroke="#16a34a" stroke-width="1" />
+        
+        <!-- Extrude walls -->
+        <polygon points="21,33 41,44 41,66 21,55" fill="#166534" stroke="#14532d" stroke-width="1" />
+        <polygon points="41,44 60,33 60,55 41,66" fill="#15803d" stroke="#14532d" stroke-width="1" />
+        <polygon points="60,33 79,22 79,44 60,55" fill="#166534" stroke="#14532d" stroke-width="1" />
+
+        <!-- Vertical slice (Rectangle) -->
+        <polygon points="60,33 79,44 79,66 60,55" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2" stroke-linejoin="round" />
       </svg>`,
       opts:['Г-образник','Прямоугольник','Квадрат','Треугольник'], correct:1 },
 
@@ -111,7 +131,8 @@ const CS_PUZZLES = [
           </radialGradient>
         </defs>
         <circle cx="60" cy="55" r="28.6" fill="url(#sphereGrad)" stroke="#9d174d" stroke-width="1"/>
-        <polygon points="117.2,55.0 60.0,88.0 2.8,55.0 60.0,22.0" fill="rgba(245,158,11,0.6)" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+        <!-- Circular slice inside the sphere -->
+        <ellipse cx="60" cy="55" rx="28.6" ry="11" fill="rgba(250,204,21,0.8)" stroke="#facc15" stroke-width="2"/>
       </svg>`,
       opts:['Квадрат','Эллипс','Круг','Треугольник'], correct:2 },
 ];

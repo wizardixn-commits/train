@@ -177,13 +177,26 @@ function renderDashboard(container) {
 
         <!-- Developer links -->
         <div style="text-align:center;padding:18px 0 8px;display:flex;flex-direction:column;gap:10px;">
-            <a href="https://t.me/neurodojo_hub" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;border-radius:14px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.2);color:var(--accent-cyan);font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;">
-                <span style="font-size:18px;">📢</span> Подписаться на Нейро Додзё
-            </a>
+            <div style="display:flex; gap:10px;">
+                <a href="https://t.me/neurodojo_hub" target="_blank" rel="noopener"
+                   style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:12px 6px; border-radius:14px; background:rgba(0,229,255,0.07); border:1px solid rgba(0,229,255,0.2); color:var(--accent-cyan); font-size:12px; font-weight:600; text-decoration:none; text-align:center; transition:all 0.2s;">
+                    <span style="font-size:24px; line-height:1;">📢</span>
+                    <span>Нейро Додзё</span>
+                </a>
+                <a href="https://pay.cloudtips.ru/p/57dc2312" target="_blank" rel="noopener"
+                   style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:12px 6px; border-radius:14px; background:linear-gradient(135deg, rgba(255,0,110,0.15), rgba(255,183,3,0.15)); border:1px solid rgba(255,0,110,0.3); color:var(--accent-pink); font-size:12px; font-weight:700; text-decoration:none; text-align:center; transition:all 0.2s; box-shadow:0 0 15px rgba(255,0,110,0.1);">
+                    <span style="font-size:24px; line-height:1;">☕</span>
+                    <span>На кофе и коту</span>
+                </a>
+            </div>
             <a href="https://t.me/wizard_nix" target="_blank" rel="noopener"
-               style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;">
-                <span style="font-size:15px;">🧑‍💻</span> Разработчик: @wizard_nix
+               style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 20px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);text-decoration:none;transition:all 0.2s;text-align:center;">
+                <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;color:var(--text-primary);">
+                    <span style="font-size:16px;">🧑‍💻</span> Автор: @wizard_nix
+                </div>
+                <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">
+                    💡 Есть идея или нашёл баг? Напиши мне, буду рад обратной связи!
+                </div>
             </a>
         </div>
     `;

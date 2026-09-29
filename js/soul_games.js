@@ -341,7 +341,7 @@ function showTreeBloomAnimation(icon, text) {
     const animOverlay = document.createElement('div');
     animOverlay.style.cssText = `
         position:fixed; inset:0; z-index:9999;
-        background:radial-gradient(circle at center, rgba(0,255,136,0.25) 0%, rgba(0,0,0,0.85) 70%);
+        background:rgba(0,0,0,0.85); backdrop-filter:blur(10px);
         display:flex; flex-direction:column; align-items:center; justify-content:center;
         text-align:center; padding:24px;
         animation:fadeIn 0.3s ease;
@@ -565,7 +565,7 @@ function checkTheaterMood() {
     const overlay = document.createElement('div');
     overlay.style.cssText = `
         position:fixed; inset:0; z-index:9999;
-        background:radial-gradient(circle at center, rgba(232,121,249,0.25) 0%, rgba(0,0,0,0.85) 70%);
+        background:rgba(0,0,0,0.85); backdrop-filter:blur(10px);
         display:flex; flex-direction:column; align-items:center; justify-content:center;
         text-align:center; padding:24px; animation:fadeIn 0.3s ease;
     `;
@@ -750,7 +750,7 @@ function chooseFriendshipAction(isKind) {
         const overlay = document.createElement('div');
         overlay.style.cssText = `
             position:fixed; inset:0; z-index:9999;
-            background:rgba(0,0,0,0.75); backdrop-filter:blur(6px);
+            background:rgba(0,0,0,0.85); backdrop-filter:blur(10px);
             display:flex; flex-direction:column; align-items:center; justify-content:center;
             text-align:center; padding:24px;
         `;
@@ -777,7 +777,7 @@ function chooseFriendshipAction(isKind) {
     const overlay = document.createElement('div');
     overlay.style.cssText = `
         position:fixed; inset:0; z-index:9999;
-        background:radial-gradient(circle at center, rgba(0,229,255,0.25) 0%, rgba(0,0,0,0.85) 70%);
+        background:rgba(0,0,0,0.85); backdrop-filter:blur(10px);
         display:flex; flex-direction:column; align-items:center; justify-content:center;
         text-align:center; padding:24px; animation:fadeIn 0.3s ease;
     `;
@@ -919,7 +919,7 @@ function completeJoyJar() {
     const overlay = document.createElement('div');
     overlay.style.cssText = `
         position:fixed; inset:0; z-index:9999;
-        background:radial-gradient(circle at center, rgba(255,183,3,0.3) 0%, rgba(0,0,0,0.85) 70%);
+        background:rgba(0,0,0,0.85); backdrop-filter:blur(10px);
         display:flex; flex-direction:column; align-items:center; justify-content:center;
         text-align:center; padding:24px; animation:fadeIn 0.3s ease;
     `;

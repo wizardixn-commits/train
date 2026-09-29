@@ -91,11 +91,11 @@ function renderBlueprint(container) {
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:flex-start;margin-bottom:10px;">
                 <div style="text-align:center;">
                     <div style="font-size:9px;color:var(--text-secondary);margin-bottom:4px;">Чертёж сверху</div>
-                    ${bpGridSVG(ex.top, ex.maxX, ex.maxY)}
+                    ${bpGridSVG(ex.top, ex.maxX, ex.maxY, false)}
                 </div>
                 <div style="text-align:center;">
                     <div style="font-size:9px;color:var(--text-secondary);margin-bottom:4px;">Чертёж спереди</div>
-                    ${bpGridSVG(ex.front, ex.maxX, ex.maxZ)}
+                    ${bpGridSVG(ex.front, ex.maxX, ex.maxZ, true)}
                 </div>
                 <div style="font-size:22px;align-self:center;">→</div>
                 <div style="text-align:center;">
@@ -125,13 +125,14 @@ function renderBlueprint(container) {
     `;
 }
 
-function bpGridSVG(cells, maxH, maxV) {
+function bpGridSVG(cells, maxH, maxV, flipY=true) {
     const cs=BP_CELL, W=maxH*cs, H=maxV*cs;
     const cellSet=new Set(cells.map(([h,v])=>`${h},${v}`));
     let r='';
     for(let v=maxV-1;v>=0;v--) for(let h=0;h<maxH;h++) {
         const f=cellSet.has(`${h},${v}`);
-        r+=`<rect x="${h*cs}" y="${(maxV-1-v)*cs}" width="${cs}" height="${cs}"
+        const screenY = flipY ? (maxV-1-v)*cs : v*cs;
+        r+=`<rect x="${h*cs}" y="${screenY}" width="${cs}" height="${cs}"
             fill="${f?'#06b6d4':'rgba(255,255,255,0.04)'}" opacity="${f?0.85:1}"
             stroke="rgba(255,255,255,0.15)" stroke-width="0.5" rx="2"/>`;
     }
@@ -175,7 +176,7 @@ function bpRenderGame(container, pz, pct) {
     // User clicks cells in top-view + selects height to place cubes
 
     const cells=[];
-    for(let y=pz.maxY-1;y>=0;y--) for(let x=0;x<pz.maxX;x++) cells.push([x,y]);
+    for(let y=0;y<pz.maxY;y++) for(let x=0;x<pz.maxX;x++) cells.push([x,y]);
 
     container.innerHTML=`
         <div class="top-nav">
@@ -194,8 +195,8 @@ function bpRenderGame(container, pz, pct) {
         <div class="glass-card" style="padding:10px;margin-bottom:8px;border-color:rgba(6,182,212,0.2);">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#06b6d4;text-align:center;margin-bottom:8px;">📐 «${pz.title}» — чертежи</div>
             <div style="display:flex;gap:12px;justify-content:center;align-items:flex-end;flex-wrap:wrap;">
-                <div style="text-align:center;"><div style="font-size:8px;color:var(--text-secondary);margin-bottom:3px;">Сверху</div>${bpGridSVG(pz.top,pz.maxX,pz.maxY)}</div>
-                <div style="text-align:center;"><div style="font-size:8px;color:var(--text-secondary);margin-bottom:3px;">Спереди</div>${bpGridSVG(pz.front,pz.maxX,pz.maxZ)}</div>
+                <div style="text-align:center;"><div style="font-size:8px;color:var(--text-secondary);margin-bottom:3px;">Сверху</div>${bpGridSVG(pz.top,pz.maxX,pz.maxY,false)}</div>
+                <div style="text-align:center;"><div style="font-size:8px;color:var(--text-secondary);margin-bottom:3px;">Спереди</div>${bpGridSVG(pz.front,pz.maxX,pz.maxZ,true)}</div>
             </div>
         </div>
 
