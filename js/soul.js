@@ -108,7 +108,6 @@ function renderSoul(container) {
             </div>
             <div style="display:flex; flex-direction:column; gap:10px;">
                 ${soulCard('soul-garden', '🌳', 'Сад доброты', 'Выращивай волшебное дерево хорошими делами', '#00ff88')}
-                ${soulCard('soul-theater', '🎭', 'Эмодзи-театр', 'Конструктор живой мимики и настроения', '#e879f9')}
                 ${soulCard('soul-friendship', '🤝', 'Мостик дружбы', 'Добрые истории взаимовыручки и заботы', '#00e5ff')}
                 ${soulCard('soul-jar', '🫙', 'Банка радости', 'Лови светлячков благодарности и тепла', '#ffb703')}
             </div>

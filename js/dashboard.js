@@ -79,7 +79,7 @@ function renderDashboard(container) {
         <div id="soulBtn" style="display:none;">
             <!-- Featured Children Soul Games (4 Games) -->
             <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--accent-green); margin-bottom:8px; display:flex; align-items:center; gap:6px;">
-                <span>🌟</span> Детские игры души и EQ
+                <span>🌟</span> Детские игры души
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
                 <div class="glass-card" onclick="navigate('soul_garden')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(0,255,136,0.3); background:radial-gradient(circle at 50% 20%, rgba(0,255,136,0.1) 0%, var(--card-bg) 75%);">
@@ -87,11 +87,7 @@ function renderDashboard(container) {
                     <div style="font-size:13px; font-weight:800; color:var(--accent-green); margin-bottom:2px;">Сад доброты</div>
                     <div style="font-size:10px; color:var(--text-secondary);">Дерево добрых дел</div>
                 </div>
-                <div class="glass-card" onclick="navigate('soul_theater')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(232,121,249,0.3); background:radial-gradient(circle at 50% 20%, rgba(232,121,249,0.1) 0%, var(--card-bg) 75%);">
-                    <div style="font-size:32px; margin-bottom:6px;">🎭</div>
-                    <div style="font-size:13px; font-weight:800; color:#e879f9; margin-bottom:2px;">Эмодзи-театр</div>
-                    <div style="font-size:10px; color:var(--text-secondary);">Мимика и эмоции</div>
-                </div>
+             
                 <div class="glass-card" onclick="navigate('soul_friendship')" style="padding:15px 12px; cursor:pointer; text-align:center; border-color:rgba(0,229,255,0.3); background:radial-gradient(circle at 50% 20%, rgba(0,229,255,0.1) 0%, var(--card-bg) 75%);">
                     <div style="font-size:32px; margin-bottom:6px;">🤝</div>
                     <div style="font-size:13px; font-weight:800; color:var(--accent-cyan); margin-bottom:2px;">Мостик дружбы</div>
@@ -107,7 +103,7 @@ function renderDashboard(container) {
             <div class="glass-card" onclick="navigate('soul')" style="display:flex;align-items:center;gap:15px;padding:16px 20px;cursor:pointer;border-color:rgba(232,121,249,0.2);margin-bottom:14px;">
                 <div style="font-size:32px;">🌸</div>
                 <div style="flex:1;">
-                    <h3 style="margin-bottom:4px;color:#e879f9;">Все практики души и EQ</h3>
+                    <h3 style="margin-bottom:4px;color:#e879f9;">Все практики души</h3>
                     <p style="font-size:12px;">Детские игры и осознанность для взрослых</p>
                 </div>
                 ›
